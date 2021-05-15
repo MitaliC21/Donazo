@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-    res.render('layouts/boilerplate');
+    res.render('pages/home');
 });
 
 app.post('/', (req, res) => {
