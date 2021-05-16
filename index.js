@@ -12,17 +12,22 @@ app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(favicon(path.join(__dirname, 'public/images/favicon.png')))
 
 app.get('/', (req, res) => {
-    res.render('pages/home');
+    const stylesheet = "css/home.css";
+    const jsscript = "js/home.js"
+    res.render('pages/home', { stylesheet, jsscript });
 });
 
 app.get('/donate', (req, res) => {
-    res.render('pages/donate');
+    const stylesheet = "css/donate.css";
+    const jsscript = "js/donate.js"
+    res.render('pages/donate', { stylesheet, jsscript });
 });
 
 app.post('/', (req, res) => {
@@ -30,7 +35,9 @@ app.post('/', (req, res) => {
 });
 
 app.get('/recieve', (req, res) => {
-    res.render('pages/recieve');
+    const stylesheet = "css/receive.css";
+    const jsscript = "js/receive.js"
+    res.render('pages/recieve', { stylesheet, jsscript });
 });
 app.put('/', (req, res) => {
     res.send("Put route")
