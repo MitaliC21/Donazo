@@ -32,7 +32,9 @@ app.get('/donate', (req, res) => {
 });
 
 app.post('/donate', (req, res) => {
-    res.send(req.body);
+    const stylesheet = "css/success.css";
+    const jsscript = "js/success.js"
+    res.render('pages/success');
 });
 
 app.get('/recieve', (req, res) => {
@@ -48,6 +50,11 @@ app.post('/receive', (req, res) => {
 
 app.delete('/receive/show', (req, res) => {
     res.send("delete route")
+});
+
+app.get('/:anything', (req, res) => {
+    const stylesheet = "css/notfound.css";
+    res.render('pages/notFound', { stylesheet });
 });
 
 app.listen(3000, () => {
