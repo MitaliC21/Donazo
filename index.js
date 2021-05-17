@@ -34,7 +34,7 @@ app.get('/donate', (req, res) => {
 app.post('/donate', (req, res) => {
     const stylesheet = "css/success.css";
     const jsscript = "js/success.js"
-    res.render('pages/success');
+    res.render('pages/success', { stylesheet, jsscript });
 });
 
 app.get('/recieve', (req, res) => {
@@ -54,7 +54,7 @@ app.delete('/receive/show', (req, res) => {
 
 app.get('/:anything', (req, res) => {
     const stylesheet = "css/notfound.css";
-    res.render('pages/notFound', { stylesheet });
+    res.render('pages/notfound', { stylesheet });
 });
 
 app.listen(3000, () => {
