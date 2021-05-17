@@ -45,7 +45,7 @@ app.get('/recieve', (req, res) => {
 
 
 app.post('/receive', (req, res) => {
-    res.send("Post route")
+    res.send({ "name": "Piyush Terkar" })
 });
 
 app.delete('/receive/show', (req, res) => {
