@@ -1,3 +1,80 @@
-h1{
-    color: red;
+
+nav{
+    animation: slideInFromtop 3s;
 }
+
+body{
+  background-color: #960018;
+}
+.icon{
+    width: 30vw;
+    height: 50vh;
+  }
+.bg1st{
+  background-image: linear-gradient(#CC0022 , #960018);
+}
+.slide-1{
+    color: #FFEBEE;
+    animation: slideInFromtop 1s;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info-card{
+  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-title{
+  text-align: center;
+  color: #960018;
+}
+.card{
+  Background-image: linear-gradient(to right bottom, #e8ceee,#ffffff);
+}
+.navigate{
+  display: flex;
+  justify-content: space-evenly;
+}
+.btn-danger{
+  background-color: #FFADBB;
+  border-color: #CC0022;
+  color: #960018;
+}
+
+
+
+@keyframes slideInFromtop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes slideInFrombottom {
+    0% {
+      transform: translateY(200%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+
+
+  @media (max-width: 411px) {
+    .navigate{
+      flex-direction: column;
+      align-items: center;
+    }
+    .icon{
+      max-width: 200px;
+      width: 100%;
+    }
+  }

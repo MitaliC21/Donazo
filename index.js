@@ -15,6 +15,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(favicon(path.join(__dirname, 'public/images/favicon.png')))
 
@@ -30,8 +31,8 @@ app.get('/donate', (req, res) => {
     res.render('pages/donate', { stylesheet, jsscript });
 });
 
-app.post('/', (req, res) => {
-    res.send("Post route")
+app.post('/donate', (req, res) => {
+    res.send(req.body);
 });
 
 app.get('/recieve', (req, res) => {
@@ -39,11 +40,13 @@ app.get('/recieve', (req, res) => {
     const jsscript = "js/receive.js"
     res.render('pages/recieve', { stylesheet, jsscript });
 });
-app.put('/', (req, res) => {
-    res.send("Put route")
+
+
+app.post('/receive', (req, res) => {
+    res.send("Post route")
 });
 
-app.delete('/', (req, res) => {
+app.delete('/receive/show', (req, res) => {
     res.send("delete route")
 });
 
