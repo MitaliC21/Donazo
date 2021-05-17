@@ -46,7 +46,13 @@ body{
   border-color: #CC0022;
   color: #960018;
 }
-
+.simple-steps{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #e8ceee;
+  border-radius: 50px;
+}
 
 
 @keyframes slideInFromtop {
@@ -75,6 +81,12 @@ body{
     }
     .icon{
       max-width: 200px;
+      width: 100%;
+    }
+    .simple-steps{
+      flex-direction: column;
+      justify-content: space-evenly;
+      max-width: 300px;
       width: 100%;
     }
   }
