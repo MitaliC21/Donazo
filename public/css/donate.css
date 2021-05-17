@@ -1,3 +1,80 @@
 h1{
     color: red;
 }
+
+body{
+    background-image:linear-gradient(to right bottom, #e8ceee, #ffffff);
+}
+
+
+.body{
+    padding: 40px 100px 40px 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display:flexbox;
+    align-items: center;
+}
+
+@keyframes khalunvr {
+    0%{
+        transform: translateY(600%);
+        
+    }
+    100%{
+        transform: translateY(0%);
+        
+    }
+}
+
+#name{
+    animation: khalunvr 1s;
+    
+}
+
+#email{
+    animation: khalunvr 1s;
+}
+
+#BG{
+    animation: khalunvr 1s;
+}
+
+#address{
+    animation: khalunvr 1s;
+}
+
+#pnumber{
+    animation: khalunvr 1s;
+}
+#check{
+    animation: khalunvr 1s;
+}
+#button{
+    animation:khalunvr 1s;
+}
+footer{
+    animation: khalunvr 1s;
+}
+
+@media (max-width: 770px){
+    #BG{
+        display: block;
+    }
+    .body{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    #bgroup{
+        margin-bottom: 4px;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px){
+    footer{
+        display: grid;
+    }
+    footer #author{
+        padding-bottom: 20px;
+    }
+}
