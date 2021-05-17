@@ -53,8 +53,9 @@ app.delete('/receive/show', (req, res) => {
 });
 
 app.get('/:anything', (req, res) => {
+    const jsscript = undefined;
     const stylesheet = "css/notfound.css";
-    res.render('pages/notfound', { stylesheet });
+    res.render('pages/notfound', { stylesheet, jsscript });
 });
 
 app.listen(3000, () => {
