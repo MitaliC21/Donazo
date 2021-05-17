@@ -40,7 +40,7 @@ app.post('/donate', (req, res) => {
 app.get('/recieve', (req, res) => {
     const stylesheet = "css/receive.css";
     const jsscript = "js/receive.js"
-    res.redirect('pages/recieve', { stylesheet, jsscript });
+    res.render('pages/recieve', { stylesheet, jsscript });
 });
 
 
