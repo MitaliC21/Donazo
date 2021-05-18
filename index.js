@@ -4,6 +4,7 @@ const path = require('path')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const favicon = require('serve-favicon')
+const database = require('./database/model/dbServer')
 const app = express()
 
 app.engine('ejs', ejsMate)
@@ -32,7 +33,8 @@ app.get('/donate', (req, res) => {
 
 app.post('/donate', (req, res) => {
     const stylesheet = "css/success.css";
-    const jsscript = "js/success.js"
+    const jsscript = "js/success.js";
+    database.insert(req.body);
     res.render('pages/success', { stylesheet, jsscript });
 });
 
@@ -44,10 +46,17 @@ app.get('/receive', (req, res) => {
 
 
 app.post('/receive', (req, res) => {
+    database.search(req.body);
     res.send({ "name": "Piyush Terkar" })
 });
 
+app.put('/', (req, res) => {
+    database.update(req.body);
+    res.send("Put route")
+})
+
 app.delete('/receive/show', (req, res) => {
+    database.remove(req.body)
     res.send("delete route")
 });
 
