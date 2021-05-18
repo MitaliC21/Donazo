@@ -37,7 +37,7 @@ app.post('/donate', (req, res) => {
     res.render('pages/success', { stylesheet, jsscript });
 });
 
-app.get('/recieve', (req, res) => {
+app.get('/receive', (req, res) => {
     const stylesheet = "css/receive.css";
     const jsscript = "js/receive.js"
     res.render('pages/recieve', { stylesheet, jsscript });
