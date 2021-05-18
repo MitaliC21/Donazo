@@ -3,7 +3,6 @@ const ejsMate = require('ejs-mate')
 const path = require('path')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-const mysql = require('mysql')
 const favicon = require('serve-favicon')
 const app = express()
 
@@ -40,7 +39,7 @@ app.post('/donate', (req, res) => {
 app.get('/receive', (req, res) => {
     const stylesheet = "css/receive.css";
     const jsscript = "js/receive.js"
-    res.render('pages/recieve', { stylesheet, jsscript });
+    res.render('pages/receive', { stylesheet, jsscript });
 });
 
 
