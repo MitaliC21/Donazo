@@ -18,8 +18,8 @@ database.connect(function (err) {
 const insert = (data) => {
     console.log(`
     
-    inserting ${data.fName} ${data.email} ${data.bGroup} ${data.age} ${data.addr}
-    ${data.pNumber}into donars
+    inserting ${data.fName} ${data.email} ${data.bGroup} ${data.age} ${data.state}
+    ${data.city}into donars
     
     `)
 }

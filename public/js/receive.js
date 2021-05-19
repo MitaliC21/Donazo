@@ -1,6 +1,4 @@
 /** @format */
-
-//const axios = require('axios');
 //const form = document.querySelector('.sForm');
 const button = document.querySelector('#button');
 const searchid = document.querySelector('#select');

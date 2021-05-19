@@ -1,34 +1,53 @@
-<% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplate')
+    %>
 
 
 
 
     <div class="body">
-        <form method="POST" action="/donate">
+        <form method="POST"
+            action="/donate">
 
-            <div class="form-row mb-4" id="name">
+            <div class="form-row mb-4"
+                id="name">
                 <div class=" form-group">
                     <label for="name">Name</label>
-                    <input name="fName" type="text" class="form-control" id="name" placeholder="Enter Full Name"
+                    <input name="fName"
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter Full Name"
                         required>
                 </div>
             </div>
 
-            <div class="form-group mb-4" id="email">
+            <div class="form-group mb-4"
+                id="email">
                 <label for="exampleInputEmail1">Email address</label>
-                <input name="email" type="email" required class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                <input name="email"
+                    type="email"
+                    required
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp"
+                    class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>
 
 
-            <div class="row form-row mb-4" id="BG">
-                <div class="col col-md-6" id="bgroup">
+            <div class="row form-row mb-4"
+                id="BG">
+                <div class="col col-md-6"
+                    id="bgroup">
                     <div class="form-group">
                         <label for="bloodGroup">Blood Group</label>
-                        <select name="bGroup" class="form-select required" aria-placeholder="Select Blood Group"
-                            id="bloodGroup" required>
+                        <select name="bGroup"
+                            class="form-select required"
+                            aria-placeholder="Select Blood Group"
+                            id="bloodGroup"
+                            required>
                             <option value="">Select Blood Group</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -42,19 +61,30 @@
                     </div>
                 </div>
 
-                <div class="col col-md-6" id="age">
+                <div class="col col-md-6"
+                    id="age">
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input name="age" type="number" required class="form-control" id="number"
-                            placeholder="Enter Your Age" min="18">
+                        <input name="age"
+                            type="number"
+                            required
+                            class="form-control"
+                            id="number"
+                            placeholder="Enter Your Age"
+                            min="18">
                     </div>
                 </div>
             </div>
 
 
-            <div class="form-group mb-4" id="address">
+            <div class="form-group mb-4"
+                id="address">
                 <label for="inputAddress">State</label>
-                <select name="state" class="form-select required" aria-label="Select State" id="inputAddress">
+                <select name="state"
+                    class="form-select"
+                    required
+                    aria-label="Select State"
+                    id="inputAddress">
                     <option value="">Select State</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -89,22 +119,37 @@
 
 
 
-            <div class="form-group col-lg mb-4" id="pnumber">
-                <label for="city" aria-required="true">City</label>
-                <input name="city" type="tel" placeholder="Enter City" class="form-control" id="city">
+            <div class="form-group col-lg mb-4"
+                id="pnumber">
+                <label for="city"
+                    aria-required="true">City</label>
+                <input name="city"
+                    type="tel"
+                    placeholder="Enter City"
+                    class="form-control"
+                    id="city"
+                    required>
             </div>
 
 
 
-            <div class="form-group mb-4" id="check">
+            <div class="form-group mb-4"
+                id="check">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
+                    <input class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck"
+                        required>
+                    <label class="form-check-label"
+                        for="gridCheck">
+                        I accept that the details provided are true to the best of my knowledge and incase of any false
+                        details I am liable legal action.
                     </label>
                 </div>
             </div>
-            <button type="submit" id="button" class="btn btn-danger">Submit</button>
+            <button type="submit"
+                id="button"
+                class="btn btn-danger">Submit</button>
         </form>
     </div>
 
