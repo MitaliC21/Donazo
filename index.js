@@ -47,7 +47,7 @@ app.get('/receive', (req, res) => {
 
 app.post('/receive', (req, res) => {
     database.search(req.body);
-    res.send({ "name": "Piyush Terkar" })
+    res.send([{ "fName": "mitali", email: "mitalichougule2019.it@mmcoe.edu.in", bGroup: "B+", age: "19", addr: "Alibag", pNumber: "51654654654" }, { "fName": "piyush", email: "piyushT2019.it@mmcoe.edu.in", bGroup: "O+", age: "19", addr: "Alibag", pNumber: "51654654654" }])
 });
 
 app.put('/', (req, res) => {
