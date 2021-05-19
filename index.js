@@ -3,8 +3,8 @@ const ejsMate = require('ejs-mate')
 const path = require('path')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-const mysql = require('mysql')
 const favicon = require('serve-favicon')
+const database = require('./database/model/dbServer')
 const app = express()
 
 app.engine('ejs', ejsMate)
@@ -33,22 +33,30 @@ app.get('/donate', (req, res) => {
 
 app.post('/donate', (req, res) => {
     const stylesheet = "css/success.css";
-    const jsscript = "js/success.js"
+    const jsscript = "js/success.js";
+    database.insert(req.body);
     res.render('pages/success', { stylesheet, jsscript });
 });
 
-app.get('/recieve', (req, res) => {
+app.get('/receive', (req, res) => {
     const stylesheet = "css/receive.css";
     const jsscript = "js/receive.js"
-    res.render('pages/recieve', { stylesheet, jsscript });
+    res.render('pages/receive', { stylesheet, jsscript });
 });
 
 
 app.post('/receive', (req, res) => {
-    res.send({ "name": "Piyush Terkar" })
+    database.search(req.body);
+    res.send([{ "fName": "mitali", email: "mitalichougule2019.it@mmcoe.edu.in", bGroup: "B+", age: "19", addr: "Alibag", pNumber: "51654654654" }, { "fName": "piyush", email: "piyushT2019.it@mmcoe.edu.in", bGroup: "O+", age: "19", addr: "Alibag", pNumber: "51654654654" }])
 });
 
+app.put('/', (req, res) => {
+    database.update(req.body);
+    res.send("Put route")
+})
+
 app.delete('/receive/show', (req, res) => {
+    database.remove(req.body)
     res.send("delete route")
 });
 

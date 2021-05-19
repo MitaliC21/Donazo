@@ -1,34 +1,53 @@
-<% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplate')
+    %>
 
 
 
 
     <div class="body">
-        <form method="POST" action="/donate">
+        <form method="POST"
+            action="/donate">
 
-            <div class="form-row mb-4" id="name">
+            <div class="form-row mb-4"
+                id="name">
                 <div class=" form-group">
                     <label for="name">Name</label>
-                    <input name="fName" type="text" class="form-control" id="name" placeholder="Enter Full Name"
+                    <input name="fName"
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter Full Name"
                         required>
                 </div>
             </div>
 
-            <div class="form-group mb-4" id="email">
+            <div class="form-group mb-4"
+                id="email">
                 <label for="exampleInputEmail1">Email address</label>
-                <input name="email" type="email" required class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                <input name="email"
+                    type="email"
+                    required
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp"
+                    class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>
 
 
-            <div class="row form-row mb-4" id="BG">
-                <div class="col col-md-6" id="bgroup">
+            <div class="row form-row mb-4"
+                id="BG">
+                <div class="col col-md-6"
+                    id="bgroup">
                     <div class="form-group">
                         <label for="bloodGroup">Blood Group</label>
-                        <select name="bGroup" class="form-select required" aria-placeholder="Select Blood Group"
-                            id="bloodGroup" required>
+                        <select name="bGroup"
+                            class="form-select required"
+                            aria-placeholder="Select Blood Group"
+                            id="bloodGroup"
+                            required>
                             <option value="">Select Blood Group</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -42,46 +61,160 @@
                     </div>
                 </div>
 
-                <div class="col col-md-6" id="age">
+                <div class="col col-md-6"
+                    id="age">
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input name="age" type="number" required class="form-control" id="number"
-                            placeholder="Enter Your Age" min="18">
+                        <input name="age"
+                            type="number"
+                            required
+                            class="form-control"
+                            id="number"
+                            placeholder="Enter Your Age"
+                            min="18">
                     </div>
                 </div>
             </div>
 
 
-
-
-            <div class="form-group mb-4" id="address">
-                <label for="inputAddress">Address</label>
-                <input name="addr" type="text" class="form-control" id="inputAddress" placeholder="Permanent Address">
+            <div class="form-group mb-4"
+                id="address">
+                <label for="inputAddress">State</label>
+                <select name="state"
+                    class="form-select"
+                    required
+                    aria-label="Select State"
+                    id="inputAddress">
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
             </div>
 
 
 
-            <div class="form-group col-lg mb-4" id="pnumber">
-                <label for="pnumber" aria-required="true">Phone Number</label>
-                <input name="pNumber" type="tel" placeholder="Enter Phone Number" class="form-control" id="pnumber">
+            <div class="form-group col-lg mb-4"
+                id="pnumber">
+                <label for="city"
+                    aria-required="true">City</label>
+                <input name="city"
+                    type="tel"
+                    placeholder="Enter City"
+                    class="form-control"
+                    id="city"
+                    required>
             </div>
 
 
 
-            <div class="form-group mb-4" id="check">
+            <div class="form-group mb-4"
+                id="check">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
+                    <input class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck"
+                        required>
+                    <label class="form-check-label"
+                        for="gridCheck">
+                        I accept that the details provided are true to the best of my knowledge and incase of any false
+                        details I am liable legal action.
                     </label>
                 </div>
             </div>
-
-
-
-            <button type="submit" id="button" class="btn" style="background-color: #FFADBB;">Submit</button>
-
-
-
+            <button type="submit"
+                id="button"
+                class="btn btn-danger">Submit</button>
         </form>
+    </div>
+
+
+
+
+    <div class="table  shadow-lg p-3 mb-5 bg-body rounded mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">If your blood type is</th>
+                    <th scope="col">You can give to</th>
+                    <th scope="col">You can Receive From</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>O Positive</td>
+                    <td>O+, A+, B+, AB+</td>
+                    <td>O+, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>A Positive</td>
+                    <td>A+, AB+</td>
+                    <td>A+, A-, O+, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>B Positive</td>
+                    <td>B+, AB+</td>
+                    <td>B+, B-, O+, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>AB Positive</td>
+                    <td>AB+ Only</td>
+                    <td>All Blood Types</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>O Negative</td>
+                    <td>All Blood Types</td>
+                    <td>O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>A Negative</td>
+                    <td>A-, A+, AB-, AB+</td>
+                    <td>A-, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>B Negative</td>
+                    <td>B-, B+, AB-, AB+</td>
+                    <td>B-, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>AB Negative</td>
+                    <td>AB-, AB+</td>
+                    <td>AB-, A-, B-, O-</td>
+                </tr>
+            </tbody>
+        </table>
     </div>

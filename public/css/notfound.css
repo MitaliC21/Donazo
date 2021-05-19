@@ -1,0 +1,13 @@
+h1{
+    color: #CC0022;
+}
+
+.nf{
+    height: 80vh;
+    text-align: center;
+}
+
+body{
+    background-image:linear-gradient(to right bottom, #e8ceee, #ffffff);
+    background-position: 100%
+}
