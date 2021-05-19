@@ -1,11 +1,11 @@
 body {
-	background-color: #e8ceee;
+    background-image:linear-gradient(to right bottom, #e8ceee, #ffffff);
 }
 
 #mainheader {
-	color: red;
+	color:#CC0022;
 }
 
 h2 {
-	color: red;
+	color:#CC0022;
 }

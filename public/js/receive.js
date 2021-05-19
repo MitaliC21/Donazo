@@ -53,7 +53,7 @@ button.addEventListener('click', async function (e) {
 				<h5 class="card-title">${result.fName}</h5>
 				<h5 class="card-title">${result.bGroup}</h5>
 				<h5 class="card-title">${result.age}</h5>
-				<a href="" class="btn btn-danger">Details</a>
+				<a href="receive/show" class="btn btn-danger">Details</a>
 			</div>
 		</div>
 	</div>
