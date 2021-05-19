@@ -4,7 +4,6 @@ h1{
 
 body{
     background-image:linear-gradient(to right bottom, #e8ceee, #ffffff);
-    background-position: 100%;
 }
 
 
@@ -25,16 +24,6 @@ body{
         transform: translateY(0%);
         
     }
-}
-
-.btn-danger{
-    background-color: #FFADBB;
-    border-color: #CC0022;
-    color: #960018;
-  }
-  
-.table{
-    animation: khalunvr 1s;
 }
 
 #name{
@@ -62,7 +51,6 @@ body{
 }
 #button{
     animation:khalunvr 1s;
-    
 }
 footer{
     animation: khalunvr 1s;
@@ -88,11 +76,5 @@ footer{
     }
     footer #author{
         padding-bottom: 20px;
-    }
-}
-
-@media (max-width: 400px){
-    .table{
-        margin-top: 0px;
     }
 }
