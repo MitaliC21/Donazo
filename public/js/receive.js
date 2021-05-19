@@ -3,6 +3,7 @@
 const button = document.querySelector('#button');
 const searchid = document.querySelector('#select');
 const div = document.getElementById('div');
+const section = document.querySelector('section');
 
 
 
@@ -32,7 +33,7 @@ function bloodgrp(bldgrp) {
 
 button.addEventListener('click', async function (e) {
 	e.preventDefault();
-
+	remove();
 	const searchTerm = searchid.value;
 	if (searchTerm != "") {
 		const config = { q: searchTerm };
@@ -58,6 +59,7 @@ button.addEventListener('click', async function (e) {
 		</div>
 	</div>
 </div>`;
+			section.style.height = "auto";
 			div.append(card);
 		}
 
@@ -65,3 +67,9 @@ button.addEventListener('click', async function (e) {
 		alert("Please select blood group");
 	}
 })
+
+function remove() {
+	while (div.firstChild) {
+		div.removeChild(div.firstChild);
+	}
+}
