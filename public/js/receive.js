@@ -54,7 +54,10 @@ button.addEventListener('click', async function (e) {
 				<h5 class="card-title">${result.fName}</h5>
 				<h5 class="card-title">${result.bGroup}</h5>
 				<h5 class="card-title">${result.age}</h5>
-				<a href="/show" class="btn btn-danger">Details</a>
+				<form method="POST" action="/show">
+					<input type="text" value="${result._id}" style="display:none">
+					<input type="submit" class="btn btn-danger" value="Details">
+				</form>
 			</div>
 		</div>
 	</div>

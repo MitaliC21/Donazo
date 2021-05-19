@@ -1,56 +1,95 @@
-<% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplate')
+    %>
 
 
     <div class="container">
-        <h1 class="text-center display-1 mt-5" id="mainheader"><u>Details</u></h1>
-        <img src="" class="img-fluid" alt="ABPosive" />
+        <h1 class="text-center display-1 mt-5"
+            id="mainheader"><u>Details</u></h1>
 
-        <h2>Name :-<%= data.fName %>
+        <h2>Name :- <%= rows[0].fName
+                %>
         </h2>
         <br />
-        <h2>email :- <%= data.email %>
+        <h2>email :- <%= rows[0].email
+                %>
         </h2>
         <br>
-        <h2>Phone :- <%= data.pNumber %>
+        <h2>State :- <%= rows[0].state
+                %>
         </h2>
         <br>
-        <h2>Age :- <%= data.age %>
+        <h2>Age :- <%= rows[0].age
+                %>
         </h2>
         <br />
-        <h2>City :-<%= data.addr %>
+        <h2>City :- <%= rows[0].city
+                %>
         </h2>
         <br />
         <!-- <h2>State :-</h2>
     <br /> -->
-        <h2>Blood Group :-<%= data.bGroup %>
+        <h2>Blood Group :-<%= rows[0].bGroup
+                %>
         </h2>
         <br />
 
         <h2 class="text-center mb-5 fw-bold">Receiver Details</h2>
-        <form class="row g-3">
+        <form method="POST"
+            action="/receive?_method=DELETE"
+            class="row g-3">
+            <input type="text"
+                name="_id"
+                value="<%=rows[0]._id %>"
+                style="display: none;">
             <div class="col-md-6">
-                <label for="FName" class="form-label">Name</label>
-                <input type="text" required class="form-control" id="FName" />
+                <label for="FName"
+                    class="form-label">Name</label>
+                <input type="text"
+                    name="fName"
+                    required
+                    class="form-control"
+                    id="FName" />
             </div>
-            <div class="form-group mb-4" id="email">
+            <div class="form-group mb-4"
+                id="email">
                 <label for="exampleInputEmail1">Email address</label>
-                <input name="email" type="email" required class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                <input name="email"
+                    type="email"
+                    required
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp"
+                    class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>
             <div class="col-md-6">
-                <label for="Age" class="form-label">Age</label>
-                <input type="number" required class="form-control" id="Age" />
+                <label for="Age"
+                    class="form-label">Age</label>
+                <input type="number"
+                    required
+                    name="age"
+                    class="form-control"
+                    id="Age" />
             </div>
 
             <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" required class="form-control" id="inputCity" />
+                <label for="inputCity"
+                    class="form-label">City</label>
+                <input type="text"
+                    required
+                    name="city"
+                    class="form-control"
+                    id="inputCity" />
             </div>
             <div class="col-md-6">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" required class="form-select">
+                <label for="inputState"
+                    class="form-label">State</label>
+                <select id="inputState"
+                    required
+                    name="state"
+                    class="form-select">
                     <option value="">Choose...</option>
                     <option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -93,8 +132,11 @@
                 </select>
             </div>
             <div class="col-md-12">
-                <label for="bldgrp" class="form-label">Blood Group</label>
-                <select id="bldgrp" class="form-select">
+                <label for="bldgrp"
+                    class="form-label">Blood Group</label>
+                <select id="bldgrp"
+                    name="bGroup"
+                    class="form-select">
                     <option selected>Choose...</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -107,7 +149,8 @@
                 </select>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-danger mb-5">Confirm</button>
+                <button type="submit"
+                    class="btn btn-danger mb-5">Confirm</button>
             </div>
         </form>
     </div>

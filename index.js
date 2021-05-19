@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const favicon = require('serve-favicon')
 const database = require('./database/model/dbServer')
+const { resolveSoa } = require('dns')
 const app = express()
 
 app.engine('ejs', ejsMate)
@@ -32,10 +33,19 @@ app.get('/donate', (req, res) => {
 });
 
 app.post('/donate', (req, res) => {
-    const stylesheet = "css/success.css";
-    const jsscript = "js/success.js";
-    database.insert(req.body);
-    res.render('pages/success', { stylesheet, jsscript });
+    database.query(`INSERT INTO donars(fName, email, bGroup, age, city, state) VALUES('${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state}');`, function (err, rows) {
+        if (err) {
+            const jsscript = undefined;
+            const stylesheet = "css/notfound.css";
+            res.render('pages/notfound', { stylesheet, jsscript });
+        }
+        else {
+            const stylesheet = "css/success.css";
+            const jsscript = "js/success.js";
+            res.render('pages/success', { stylesheet, jsscript });
+        }
+    });
+
 });
 
 app.get('/receive', (req, res) => {
@@ -46,21 +56,45 @@ app.get('/receive', (req, res) => {
 
 
 app.post('/receive', (req, res) => {
-    database.search(req.body);
-    res.send([{ "fName": "mitali", email: "mitalichougule2019.it@mmcoe.edu.in", bGroup: "B+", age: "19", addr: "Alibag", pNumber: "51654654654" }, { "fName": "piyush", email: "piyushT2019.it@mmcoe.edu.in", bGroup: "O+", age: "19", addr: "Alibag", pNumber: "51654654654" }])
+    database.query(`SELECT bGroup,fName,age, _id FROM donars where bGroup = '${req.body.q}';`, function (err, rows) {
+        if (err) {
+            const jsscript = undefined;
+            const stylesheet = "css/notfound.css";
+            res.render('pages/notfound', { stylesheet, jsscript });
+        } else {
+            res.send(rows);
+        }
+    })
 });
-
-app.put('/', (req, res) => {
-    database.update(req.body);
-    res.send("Put route")
+app.delete('/receive', (req, res) => {
+    database.query(`INSERT INTO receivers(fName, email, bGroup, age, city, state) VALUES('${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state} \n DELETE FROM donars [WHERE _id = ${req.body.id}]');`, function (err, rows) {
+        if (err) {
+            const jsscript = undefined;
+            const stylesheet = "css/notfound.css";
+            res.render('pages/notfound', { stylesheet, jsscript });
+        }
+        else {
+            const stylesheet = "css/success.css";
+            const jsscript = "js/success.js";
+            res.render('pages/success', { stylesheet, jsscript });
+        }
+    });
+    res.send(req.body)
 })
 
-app.get('/show', (req, res) => {
-    database.remove(req.body)
-    const data = { "fName": "mitali", email: "mitalichougule2019.it@mmcoe.edu.in", bGroup: "B+", age: "19", addr: "Alibag", pNumber: "51654654654" };
-    const stylesheet = "css/details.css"
-    const jsscript = "js/details.js"
-    res.render("pages/details", { stylesheet, jsscript, data });
+app.post('/show', (req, res) => {
+    database.query(`SELECT bGroup, fName, email, age, _id, state, city FROM donars where _id = '${req.body._id}';`, function (err, rows) {
+        if (err) {
+            const jsscript = undefined;
+            const stylesheet = "css/notfound.css";
+            res.render('pages/notfound', { stylesheet, jsscript });
+        } else {
+            const stylesheet = "css/details.css"
+            const jsscript = "js/details.js"
+            console.log({ rows });
+            res.render("pages/details", { stylesheet, jsscript, rows });
+        }
+    })
 });
 
 app.get('/:anything', (req, res) => {

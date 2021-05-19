@@ -15,34 +15,13 @@ database.connect(function (err) {
     }
 })
 
-const insert = (data) => {
-    console.log(`
-    
-    inserting ${data.fName} ${data.email} ${data.bGroup} ${data.age} ${data.state}
-    ${data.city}into donars
-    
-    `)
+const Database = {}
+Database.constructor = function (req) {
+    this.fName = req.fName,
+        this.email = req.email,
+        this.bGroup = req.bGroup,
+        this.age = req.age,
+        this.state = req.state,
+        this.city = req.city
 }
-
-const search = (data) => {
-    console.log(`
-    
-    Searching for ${data.q} in inventory
-    
-    `)
-}
-
-const update = (data) => {
-    console.log(`
-     data for ${data.fName} updated
-    `)
-}
-const remove = (data) => {
-    console.log(`
-    
-    data ${data.bGroup} removed
-    
-    `)
-}
-
-module.exports = { database, insert, search, remove, update }
+module.exports = database;
