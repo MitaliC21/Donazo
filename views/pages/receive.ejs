@@ -1,0 +1,55 @@
+<!-- @format -->
+
+<% layout('layouts/boilerplate') %>
+
+
+  <section class="search-sec">
+    <div class="container">
+      <form action="/receive" method="post" class="SForm">
+        <div class="row d-flex">
+          <div class="col-lg-12">
+            <div class="row mt-4" id="choose">
+              <!-- <div class="col-lg-3 col-md-3 col-sm-12 p-0 mx-4">
+                              <input type="text" class="form-control search-slt" placeholder="Enter Search">
+                          </div> -->
+              <div class="col-lg-6 col-md-3 col-sm-12 p-0 mx-4 mt-4">
+                <select class="form-control search-slt" id="select">
+                  <option value="">Choose Blood Group</option>
+                  <option>
+                    <p>A+</p>
+                  </option>
+                  <option>
+                    <p>A-</p>
+                  </option>
+                  <option>
+                    <p>B+</p>
+                  </option>
+                  <option>
+                    <p>B-</p>
+                  </option>
+                  <option>
+                    <p>O+</p>
+                  </option>
+                  <option>
+                    <p>O-</p>
+                  </option>
+                  <option>
+                    <p>AB+</p>
+                  </option>
+                  <option>
+                    <p>AB-</p>
+                  </option>
+                </select>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 p-0 mt-4">
+                <button id="button" type="submit" class="btn btn-danger wrn-btn">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div id="div">
+      </div>
+
+    </div>
+  </section>
