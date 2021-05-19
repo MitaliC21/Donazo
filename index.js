@@ -58,7 +58,7 @@ app.put('/', (req, res) => {
 app.get('/receive/show', (req, res) => {
     database.remove(req.body)
     const data = { "fName": "mitali", email: "mitalichougule2019.it@mmcoe.edu.in", bGroup: "B+", age: "19", addr: "Alibag", pNumber: "51654654654" };
-    res.render("/pages/details", data);
+    res.render("pages/details", data);
 });
 
 app.get('/:anything', (req, res) => {
