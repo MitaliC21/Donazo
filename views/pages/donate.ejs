@@ -52,18 +52,46 @@
             </div>
 
 
-
-
             <div class="form-group mb-4" id="address">
-                <label for="inputAddress">Address</label>
-                <input name="addr" type="text" class="form-control" id="inputAddress" placeholder="Permanent Address">
+                <label for="inputAddress">State</label>
+                <select name="state" class="form-select required" aria-label="Select State" id="inputAddress">
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
             </div>
 
 
 
             <div class="form-group col-lg mb-4" id="pnumber">
-                <label for="pnumber" aria-required="true">Phone Number</label>
-                <input name="pNumber" type="tel" placeholder="Enter Phone Number" class="form-control" id="pnumber">
+                <label for="city" aria-required="true">City</label>
+                <input name="city" type="tel" placeholder="Enter City" class="form-control" id="city">
             </div>
 
 
@@ -76,12 +104,72 @@
                     </label>
                 </div>
             </div>
-
-
-
-            <button type="submit" id="button" class="btn" style="background-color: #FFADBB;">Submit</button>
-
-
-
+            <button type="submit" id="button" class="btn btn-danger">Submit</button>
         </form>
+    </div>
+
+
+
+
+    <div class="table  shadow-lg p-3 mb-5 bg-body rounded mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">If your blood type is</th>
+                    <th scope="col">You can give to</th>
+                    <th scope="col">You can Receive From</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>O Positive</td>
+                    <td>O+, A+, B+, AB+</td>
+                    <td>O+, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>A Positive</td>
+                    <td>A+, AB+</td>
+                    <td>A+, A-, O+, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>B Positive</td>
+                    <td>B+, AB+</td>
+                    <td>B+, B-, O+, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>AB Positive</td>
+                    <td>AB+ Only</td>
+                    <td>All Blood Types</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>O Negative</td>
+                    <td>All Blood Types</td>
+                    <td>O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>A Negative</td>
+                    <td>A-, A+, AB-, AB+</td>
+                    <td>A-, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>B Negative</td>
+                    <td>B-, B+, AB-, AB+</td>
+                    <td>B-, O-</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>AB Negative</td>
+                    <td>AB-, AB+</td>
+                    <td>AB-, A-, B-, O-</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
