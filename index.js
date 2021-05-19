@@ -55,12 +55,12 @@ app.put('/', (req, res) => {
     res.send("Put route")
 })
 
-app.get('/receive/show', (req, res) => {
+app.get('/show', (req, res) => {
     database.remove(req.body)
     const data = { "fName": "mitali", email: "mitalichougule2019.it@mmcoe.edu.in", bGroup: "B+", age: "19", addr: "Alibag", pNumber: "51654654654" };
     const stylesheet = "css/details.css"
     const jsscript = "js/details.js"
-    res.render("pages/details", { data, stylesheet, jsscript });
+    res.render("pages/details", { stylesheet, jsscript, data });
 });
 
 app.get('/:anything', (req, res) => {
