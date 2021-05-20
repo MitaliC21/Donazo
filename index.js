@@ -5,7 +5,6 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const favicon = require('serve-favicon')
 const database = require('./database/model/dbServer')
-const { resolveSoa } = require('dns')
 const app = express()
 
 app.engine('ejs', ejsMate)
@@ -35,6 +34,7 @@ app.get('/donate', (req, res) => {
 app.post('/donate', (req, res) => {
     database.query(`INSERT INTO donars(fName, email, bGroup, age, city, state) VALUES('${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state}');`, function (err, rows) {
         if (err) {
+            console.log(err);
             const jsscript = undefined;
             const stylesheet = "css/notfound.css";
             res.render('pages/notfound', { stylesheet, jsscript });
@@ -66,11 +66,24 @@ app.post('/receive', (req, res) => {
         }
     })
 });
+
+app.get('/history', (req, res) => {
+    database.query('SELECT * FROM recievers', function (err, rows) {
+        if (err) {
+            res.send("");
+        } else {
+            res.send(rows);
+        }
+    })
+})
+
 app.delete('/receive', (req, res) => {
-    database.query(`INSERT INTO receivers(fName, email, bGroup, age, city, state) VALUES('${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state} \n DELETE FROM donars [WHERE _id = ${req.body.id}]');`, function (err, rows) {
+    database.query(`INSERT INTO receivers(_id, fName, email, bGroup, age, city, state) VALUES( ${req.body._id},'${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state}');
+    `, function (err, rows) {
         if (err) {
             const jsscript = undefined;
             const stylesheet = "css/notfound.css";
+            console.log(err);
             res.render('pages/notfound', { stylesheet, jsscript });
         }
         else {
@@ -79,20 +92,21 @@ app.delete('/receive', (req, res) => {
             res.render('pages/success', { stylesheet, jsscript });
         }
     });
-    res.send(req.body)
+})
+
+app.post('/details', (req, res) => {
+    const stylesheet = "css/details.css"
+    const jsscript = "js/details.js"
+    const _id = req.body._id;
+    res.render("pages/details", { stylesheet, jsscript, _id });
 })
 
 app.post('/show', (req, res) => {
     database.query(`SELECT bGroup, fName, email, age, _id, state, city FROM donars where _id = '${req.body._id}';`, function (err, rows) {
         if (err) {
-            const jsscript = undefined;
-            const stylesheet = "css/notfound.css";
-            res.render('pages/notfound', { stylesheet, jsscript });
+            res.send(err);
         } else {
-            const stylesheet = "css/details.css"
-            const jsscript = "js/details.js"
-            console.log({ rows });
-            res.render("pages/details", { stylesheet, jsscript, rows });
+            res.send(rows);
         }
     })
 });
