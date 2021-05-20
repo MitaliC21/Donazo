@@ -51,7 +51,7 @@ button.addEventListener('click', async function (e) {
 		</div>
 		<div class="col-md-8 mt-2">
 			<div class="card-body">
-				<h5 class="card-title">${result.fName}</h5>
+				<h5 class="card-title"> Donar: ${result.fName}</h5>
 				<h5 class="card-title">${result.bGroup}</h5>
 				<h5 class="card-title">${result.age}</h5>
 				<form method="POST" action="/details">
@@ -80,7 +80,7 @@ function remove() {
 history.addEventListener('click', async function (e) {
 	e.preventDefault();
 	remove();
-	const searchResults = await axios.get('/history');
+	const searchResults = await axios.get('/history', { hist: true });
 
 	for (let result of searchResults.data) {
 		const card = document.createElement('div');
@@ -94,10 +94,10 @@ history.addEventListener('click', async function (e) {
 		</div>
 		<div class="col-md-8 mt-2">
 			<div class="card-body">
-				<h5 class="card-title">${result.fName}</h5>
+				<h5 class="card-title">Receiver: ${result.fName}</h5>
 				<h5 class="card-title">${result.bGroup}</h5>
 				<h5 class="card-title">${result.age}</h5>
-				<form method="POST" action="/details">
+				<form method="POST" action="/histDetails">
 					<input type="text" name="_id" value="${result._id}" style="display: none;">
 					<input type="submit" class="btn btn-danger" value="Details">
 				</form>

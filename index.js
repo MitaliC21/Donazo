@@ -19,6 +19,8 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(favicon(path.join(__dirname, 'public/images/favicon.png')))
 
+
+
 app.get('/', (req, res) => {
     const stylesheet = "css/home.css";
     const jsscript = "js/home.js"
@@ -56,7 +58,7 @@ app.get('/receive', (req, res) => {
 
 
 app.post('/receive', (req, res) => {
-    database.query(`SELECT bGroup,fName,age, _id FROM donars where bGroup = '${req.body.q}';`, function (err, rows) {
+    database.query(`SELECT bGroup,fName,age, _id FROM inventory where bGroup = '${req.body.q}';`, function (err, rows) {
         if (err) {
             const jsscript = undefined;
             const stylesheet = "css/notfound.css";
@@ -68,13 +70,32 @@ app.post('/receive', (req, res) => {
 });
 
 app.get('/history', (req, res) => {
-    database.query('SELECT * FROM recievers', function (err, rows) {
+    database.query('SELECT * FROM receivers', function (err, rows) {
         if (err) {
             res.send("");
         } else {
             res.send(rows);
         }
     })
+})
+
+
+app.post('/history', (req, res) => {
+    database.query(`SELECT bGroup, fName, email, age, _id, state, city FROM receivers where _id = '${req.body._id}';`, function (err, rows) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(rows);
+        }
+    })
+});
+
+
+app.post('/histDetails', (req, res) => {
+    const stylesheet = "css/histDetails.css"
+    const jsscript = "js/histDetails.js"
+    const _id = req.body._id;
+    res.render("pages/histDetails", { stylesheet, jsscript, _id });
 })
 
 app.delete('/receive', (req, res) => {
