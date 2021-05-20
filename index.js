@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const favicon = require('serve-favicon')
 const database = require('./database/model/dbServer')
+const { query } = require('./database/model/dbServer')
 const app = express()
 
 app.engine('ejs', ejsMate)
@@ -155,7 +156,35 @@ app.get('/report', (req, res) => {
 })
 
 app.post('/report', (req, res) => {
-    res.send("this is data");
+    switch (req.body.q) {
+        case "r":
+            database.query(`SELECT * FROM receivers;`, function (err, rows) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(rows);
+                }
+            })
+            break;
+        case "d":
+            database.query(`SELECT * FROM donars;`, function (err, rows) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(rows);
+                }
+            })
+            break;
+        case "i":
+            database.query(`SELECT * FROM inventory;`, function (err, rows) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(rows);
+                }
+            })
+            break;
+    }
 })
 
 
