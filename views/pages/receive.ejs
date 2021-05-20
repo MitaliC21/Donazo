@@ -1,25 +1,17 @@
 <!-- @format -->
 
-<% layout('layouts/boilerplate')
-  %>
+<% layout('layouts/boilerplate') %>
 
 
   <section class="search-sec">
     <div class="container">
-      <form action="/receive"
-        method="post"
-        class="SForm">
+      <form action="/receive" method="post" class="SForm">
         <div class="row">
           <div class="col-lg-12">
-            <div class="row mt-4"
-              id="choose">
+            <div class="row mt-4" id="choose">
               <div class="form-group">
                 <label for="bloodGroup">Blood Group</label>
-                <select name="bGroup"
-                  class="form-select"
-                  aria-placeholder="Select Blood Group"
-                  id="select"
-                  required>
+                <select name="bGroup" class="form-select" aria-placeholder="Select Blood Group" id="select" required>
                   <option value="">Select Blood Group</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
@@ -31,15 +23,14 @@
                   <option value="AB-">AB-</option>
                 </select>
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0 mt-4">
-                  <button id="button"
-                    type="submit"
-                    class="btn btn-danger wrn-btn">Search</button>
+                  <button id="button" type="submit" class="btn btn-danger wrn-btn">Search</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </form>
+      <button id="history" class="btn btn-danger">View History</button>
       <div id="div">
       </div>
 

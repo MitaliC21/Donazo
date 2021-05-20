@@ -3,6 +3,7 @@ const button = document.querySelector('#button');
 const searchid = document.querySelector('#select');
 const div = document.getElementById('div');
 const section = document.querySelector('section');
+const history = document.querySelector('#history');
 
 
 
@@ -75,3 +76,36 @@ function remove() {
 		div.removeChild(div.firstChild);
 	}
 }
+
+history.addEventListener('click', async function (e) {
+	e.preventDefault();
+	remove();
+	const searchResults = await axios.get('/history');
+
+	for (let result of searchResults.data) {
+		const card = document.createElement('div');
+		card.innerHTML = `<div class="card mt-4 mb-3 shadow"
+	style="max-width: 540px; max-height: 540px;">
+	<div class="row g-0 ms-100">
+		<div class="col-md-4">
+			<img src=${bloodgrp(result.bGroup)}
+				alt="..."
+				class="img-fluid">
+		</div>
+		<div class="col-md-8 mt-2">
+			<div class="card-body">
+				<h5 class="card-title">${result.fName}</h5>
+				<h5 class="card-title">${result.bGroup}</h5>
+				<h5 class="card-title">${result.age}</h5>
+				<form method="POST" action="/details">
+					<input type="text" name="_id" value="${result._id}" style="display: none;">
+					<input type="submit" class="btn btn-danger" value="Details">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>`;
+		section.style.height = "auto";
+		div.append(card);
+	}
+})
