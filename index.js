@@ -148,6 +148,19 @@ app.post('/histDetails', (req, res) => {
 
 
 
+app.get('/report', (req, res) => {
+    const stylesheet = "css/report.css"
+    const jsscript = "js/report.js"
+    res.render("pages/report", { stylesheet, jsscript });
+})
+
+app.post('/report', (req, res) => {
+    res.send("this is data");
+})
+
+
+
+
 app.get('/:anything', (req, res) => {
     const jsscript = undefined;
     const stylesheet = "css/notfound.css";
