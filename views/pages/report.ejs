@@ -1,2 +1,41 @@
-<% layout('layouts/boilerplate')
-    %>
+<% layout('layouts/boilerplate') %>
+
+    <section>
+        <form action="/receive" method="post" class="SForm">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row mt-4" id="choose">
+                        <div class="form-group">
+                            <label for="bloodGroup">Report</label>
+                            <select name="q" class="form-select" aria-placeholder="Select" id="select" required>
+                                <option value="">Select</option>
+                                <option value="d">Donars</option>
+                                <option value="r">Receivers</option>
+                                <option value="i">Inventury</option>
+                            </select>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0 mt-4">
+                                <button id="button" type="submit" class="btn btn-danger wrn-btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Blood Group</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">State</th>
+                    <th scope="col">City</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </section>
