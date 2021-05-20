@@ -27,6 +27,9 @@ app.get('/', (req, res) => {
     res.render('pages/home', { stylesheet, jsscript });
 });
 
+
+
+
 app.get('/donate', (req, res) => {
     const stylesheet = "css/donate.css";
     const jsscript = "js/donate.js"
@@ -50,6 +53,22 @@ app.post('/donate', (req, res) => {
 
 });
 
+
+
+
+app.post('/show', (req, res) => {
+    database.query(`SELECT bGroup, fName, email, age, _id, state, city FROM donars where _id = '${req.body._id}';`, function (err, rows) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(rows);
+        }
+    })
+});
+
+
+
+
 app.get('/receive', (req, res) => {
     const stylesheet = "css/receive.css";
     const jsscript = "js/receive.js"
@@ -68,6 +87,26 @@ app.post('/receive', (req, res) => {
         }
     })
 });
+
+app.delete('/receive', (req, res) => {
+    database.query(`INSERT INTO receivers(_id, fName, email, bGroup, age, city, state) VALUES( ${req.body._id},'${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state}');
+    `, function (err, rows) {
+        if (err) {
+            const jsscript = undefined;
+            const stylesheet = "css/notfound.css";
+            console.log(err);
+            res.render('pages/notfound', { stylesheet, jsscript });
+        }
+        else {
+            const stylesheet = "css/success.css";
+            const jsscript = "js/success.js";
+            res.render('pages/success', { stylesheet, jsscript });
+        }
+    });
+})
+
+
+
 
 app.get('/history', (req, res) => {
     database.query('SELECT * FROM receivers', function (err, rows) {
@@ -91,29 +130,6 @@ app.post('/history', (req, res) => {
 });
 
 
-app.post('/histDetails', (req, res) => {
-    const stylesheet = "css/histDetails.css"
-    const jsscript = "js/histDetails.js"
-    const _id = req.body._id;
-    res.render("pages/histDetails", { stylesheet, jsscript, _id });
-})
-
-app.delete('/receive', (req, res) => {
-    database.query(`INSERT INTO receivers(_id, fName, email, bGroup, age, city, state) VALUES( ${req.body._id},'${req.body.fName}','${req.body.email}', '${req.body.bGroup}', ${req.body.age},'${req.body.city}', '${req.body.state}');
-    `, function (err, rows) {
-        if (err) {
-            const jsscript = undefined;
-            const stylesheet = "css/notfound.css";
-            console.log(err);
-            res.render('pages/notfound', { stylesheet, jsscript });
-        }
-        else {
-            const stylesheet = "css/success.css";
-            const jsscript = "js/success.js";
-            res.render('pages/success', { stylesheet, jsscript });
-        }
-    });
-})
 
 app.post('/details', (req, res) => {
     const stylesheet = "css/details.css"
@@ -122,21 +138,23 @@ app.post('/details', (req, res) => {
     res.render("pages/details", { stylesheet, jsscript, _id });
 })
 
-app.post('/show', (req, res) => {
-    database.query(`SELECT bGroup, fName, email, age, _id, state, city FROM donars where _id = '${req.body._id}';`, function (err, rows) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(rows);
-        }
-    })
-});
+app.post('/histDetails', (req, res) => {
+    const stylesheet = "css/histDetails.css"
+    const jsscript = "js/histDetails.js"
+    const _id = req.body._id;
+    res.render("pages/histDetails", { stylesheet, jsscript, _id });
+})
+
+
+
 
 app.get('/:anything', (req, res) => {
     const jsscript = undefined;
     const stylesheet = "css/notfound.css";
     res.render('pages/notfound', { stylesheet, jsscript });
 });
+
+
 
 app.listen(3000, () => {
     console.log("listening on port 3000")
